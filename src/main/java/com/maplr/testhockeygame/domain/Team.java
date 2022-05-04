@@ -12,8 +12,6 @@ import java.util.Collection;
 @Setter
 public class Team extends MaplrEntity {
 
-    @Id
-    private long id;
     private String coach;
     private long year;
 
