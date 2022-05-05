@@ -1,7 +1,6 @@
 package com.maplr.testhockeygame.shared.enumeration;
 
 import org.springframework.util.ObjectUtils;
-import org.springframework.util.StringUtils;
 
 public enum ErrorCodeEnum {
 
@@ -10,9 +9,8 @@ public enum ErrorCodeEnum {
      * ===================================
      */
 
-    SERV_E_1(null, "No data found for given ID %s")
-
-
+    SERV_E_1(null, "No data found for given ID %s"),
+    ENUM_PP_1(null, "No entry in the enum found for label %s")
     ;
 
 

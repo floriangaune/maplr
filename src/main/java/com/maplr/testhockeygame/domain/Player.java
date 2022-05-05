@@ -4,19 +4,26 @@ import com.maplr.testhockeygame.domain.enumeration.PlayerPositionEnum;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
 
 @Getter
 @Setter
-public class Player extends MaplrEntity {
+@Entity
+public class Player extends MaplrEntity{
 
-    private long number;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
+
+    private Long number;
     private String name;
     private String lastName;
+
+    @ManyToOne
     private Team team;
 
     @Enumerated(EnumType.STRING)
     private PlayerPositionEnum position;
     private boolean isCaptain;
+
 }
