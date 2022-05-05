@@ -13,7 +13,7 @@ public interface ITeamService {
      * @param year to search
      * @return the given team if exists
      */
-    Team findByYear(long year);
+    Team findOrCreateByYear(long year);
 
     /**
      * Create a new Hokey player and assign it to the team of the given year

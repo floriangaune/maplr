@@ -1,7 +1,6 @@
 package com.maplr.testhockeygame.web.rest;
 
 import com.maplr.testhockeygame.domain.Player;
-import com.maplr.testhockeygame.domain.Team;
 import com.maplr.testhockeygame.service.contract.ITeamService;
 import com.maplr.testhockeygame.web.mapper.PlayerMapper;
 import com.maplr.testhockeygame.web.mapper.TeamMapper;
@@ -28,22 +27,13 @@ public class TeamRessource {
     }
 
     /**
-     * Find a team for the given year
+     * Find a team for the given year if not exists, create it
      * @param year for search the team
      * @return the team if exists, 404 otherwise
      */
     @GetMapping("/{year}")
     public ResponseEntity<TeamView> findByYear(@PathVariable long year) {
-
-        // Search of the team
-        Team searchedTeam = this.teamService.findByYear(year);
-
-        // Create response depending of the returned team
-        if (searchedTeam == null) {
-            return ResponseEntity.notFound().build();
-        } else {
-            return ResponseEntity.ok().body(TeamMapper.INSTANCE.toView(searchedTeam));
-        }
+        return ResponseEntity.accepted().body(TeamMapper.INSTANCE.toView(this.teamService.findOrCreateByYear(year)));
     }
 
     /**

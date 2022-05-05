@@ -22,13 +22,13 @@ public class TeamService implements com.maplr.testhockeygame.service.contract.IT
     }
 
     /**
-     * Find a team for the given year
+     * Find a team for the given year, or create it if not exists
      * @param year to search
-     * @return the given team if exists
+     * @return the searched team
      */
     @Override
-    public Team findByYear(long year) {
-        return this.teamRepository.findByYear(year);
+    public Team findOrCreateByYear(long year) {
+        return this.findOrCreateTeamIfNecessary(year);
     }
 
     /**
@@ -56,7 +56,7 @@ public class TeamService implements com.maplr.testhockeygame.service.contract.IT
      * @return the existing team, or the new team
      */
     private Team findOrCreateTeamIfNecessary(long year) {
-        Team searchedTeam = this.findByYear(year);
+        Team searchedTeam = this.teamRepository.findByYear(year);
 
         if (searchedTeam == null) {
             Team newTeam = new Team();
