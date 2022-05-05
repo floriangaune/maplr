@@ -7,9 +7,12 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 
-import javax.persistence.Id;
 import java.time.Instant;
 
+/**
+ * Is the base class for all entities used in the Maplr application.
+ * Represents the core data for auditing events
+ */
 @Getter
 @Setter
 public class MaplrEntity {

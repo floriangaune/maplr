@@ -2,10 +2,12 @@ package com.maplr.testhockeygame.domain;
 
 import lombok.Getter;
 import lombok.Setter;
-
 import javax.persistence.*;
 import java.util.Collection;
 
+/**
+ * A team represents a group of hokey player for a given year
+ */
 @Getter
 @Setter
 @Entity
